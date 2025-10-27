@@ -1,5 +1,6 @@
 {% set python_min = "3.10" %}
-{% set version = "2.4.1" %}
+{% set python_max = "3.13" %}
+{% set version = "2.5.0" %}
 
 
 package:
@@ -8,7 +9,7 @@ package:
 
 source:
   url: https://github.com/FZJ-IEK3-VSA/FINE/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 5728888d3dcf04777194c82217b29d3c96ac7578da573bae87db36cbacfd7880
+  sha256: 3e620565d855766345d92628282fb55f2c8ee1478b9077de3ccb548cc0ab7190
 
 build:
   number: 0
@@ -20,27 +21,27 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - setuptools >=61.0.0
+    - setuptools >=77.0.0
   run:
-    - python >={{ python_min }},<3.13
+    - python >={{ python_min }},<={{ python_max }}
     - pip
-    - geopandas <=0.14.4
-    - glpk
-    - openpyxl <3.1.5
-    - matplotlib <3.9.2
-    - xlrd <2.0.1
-    - pyomo <=6.8.0
-    - numpy <1.26.4
-    - pandas >=2,<=2.2.3
-    - scipy <=1.14.1
-    - scikit-learn >=1.2,<=1.5.2
-    - xarray <=2024.3
-    - rasterio <=1.4.1
-    - netcdf4 <=1.7.2
-    - tsam
-    - pwlf <=2.2.1
-    - psutil <=5.9.8
-    - gurobi-logtools <=3.1.0
+    - geopandas >=0.12.0,<=0.14.4,!=0.13.0
+    - glpk >=4.63,<=5.0
+    - openpyxl <=3.1.5
+    - matplotlib <=3.9.2
+    - xlrd >=1.2.0,<=2.0.2
+    - pyomo >=6.8,<=6.9.4
+    - numpy >=1.22,<=2.3.3
+    - pandas >=1.4,<=2.2.3
+    - scipy >=1.7.2,<=1.16.2
+    - scikit-learn >=1.2,<=1.7.2
+    - xarray >=2022.3.0,<=2025.10.1,!=2024.10.0,!=2024.11.0,!=2025.1.*,!=2025.3.*,!=2025.9.*
+    - rasterio >=1.3.0,<=1.4.3,!=1.3.0.post1
+    - netcdf4 >1.5.8,<=1.7.3
+    - tsam >=2.0.1,<=2.3.9
+    - pwlf >=2.0.4,<=2.5.1
+    - psutil >=5.8.0,<=7.1.0
+    - gurobi-logtools >=3.0.0,<=3.2.0
     - ipykernel <=6.29.5
 
 test:
@@ -52,7 +53,7 @@ test:
     - .
   requires:
     - python {{ python_min }}
-    - pytest
+    - pytest <=8.3.3
   commands:
     - pytest test/
 
@@ -67,3 +68,4 @@ extra:
     - noah80
     - t-gross
     - julian-belina
+    - JohannesBehrens
