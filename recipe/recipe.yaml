@@ -1,5 +1,5 @@
 context:
-  version: "2.6.0"
+  version: "2.7.0"
   python_min: "3.10"
   python_max: "3.13.12"
 
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://github.com/FZJ-IEK3-VSA/FINE/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: e3d2c03c1fb0e50a34e36d44f63147009e215e97b201563ce6bef840acae2b3f
+  sha256: bf1acdb5969a6ef132131592c6129d87c0c69551753a5bbcbfb2235e177c79d0
 
 build:
   script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation
