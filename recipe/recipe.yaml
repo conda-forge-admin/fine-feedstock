@@ -62,4 +62,6 @@ about:
 
 extra:
   recipe-maintainers:
+    - phil-fzj 
+    - JohannesBehrens
     - julian-belina
